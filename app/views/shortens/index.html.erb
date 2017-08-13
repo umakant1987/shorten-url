@@ -1,0 +1,28 @@
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing My Shorten Urls</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Original Url</th>
+      <th>Shorten Url</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shortenr.each do |shorten| %>
+      <tr>
+        <td><%= shorten.original_url %></td>
+        <td>http://localhost:3000/tiny_url/<%= shorten.tiny_url %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>

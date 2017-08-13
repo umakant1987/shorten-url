@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811152917) do
+ActiveRecord::Schema.define(version: 20170813051436) do
+
+  create_table "shorten_urls", force: :cascade do |t|
+    t.string   "original_url"
+    t.string   "shortened_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "shortens", force: :cascade do |t|
+    t.string   "original_url"
+    t.string   "tiny_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
