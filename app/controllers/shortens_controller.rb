@@ -11,7 +11,8 @@ class ShortensController < ApplicationController
 		@shorten = Shorten.new(project_params)
 		chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
 		@shorten.user_id = current_user.id
-		@shorten.tiny_url=6.times.map { chars.sample }.join
+		t_url=Shorten.generate_short_url()
+		@shorten.tiny_url=t_url
 		if @shorten.save
 			redirect_to shortens_path(), notice: "Successfully created"
 		else

@@ -6,7 +6,7 @@ else
 		node(:error){@shorten.errors.full_messages.join(',')}
 	else
 	object @shorten
-	attributes :original_url,:tiny_url
+	attributes :original_url,:build_tiny_url
 	node(:success){"Tiny Url  updated succesfuly"}
 
 	end

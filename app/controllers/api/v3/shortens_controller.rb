@@ -2,12 +2,15 @@ module Api
 	module V3
 		class ShortensController < ApplicationController
 			before_action :authenticate_user_via_access_token
-			def create 
-				@shorten = Shorten.new(project_params)
-				chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
-				@shorten.user_id = @user.id
-				@shorten.tiny_url=6.times.map { chars.sample }.join
-				@shorten.save
+			def create
+				if !@user.nil?
+					@shorten = Shorten.new(project_params)
+					#chars = ['0'..'9', 'A'..'Z', 'a'..'z'].map { |range| range.to_a }.flatten
+					@shorten.user_id = @user.id
+					t_url=Shorten.generate_short_url()
+			        @shorten.tiny_url=t_url
+					@shorten.save
+				end
 			end
 			private
 			def authenticate_user_via_access_token
