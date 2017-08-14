@@ -3,6 +3,14 @@ Rails.application.routes.draw do
    resources :api_keys
   get 'tiny_url/:id' => 'shortens#get_original_url'
 
+  namespace :api, defaults: {format:"json"} do
+    
+    namespace :v3 do
+      resources :shortens
+    end
+
+  end
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
