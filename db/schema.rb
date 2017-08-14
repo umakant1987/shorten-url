@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813051436) do
+ActiveRecord::Schema.define(version: 20170814014640) do
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "shorten_urls", force: :cascade do |t|
     t.string   "original_url"

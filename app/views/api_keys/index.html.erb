@@ -1,0 +1,37 @@
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+ <div class="pull-right" style="margin:20px"><a href="<%= new_api_key_path %>"><button type="button" class="btn btn-primary">Add Api Key</button></a></div>
+<h1>Listing My Api Keys</h1>
+ <% if !@user_keys.empty? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sl no</th>
+      <th>APi key</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_keys.each_with_index  do |user_key,index| %>
+      <tr>
+        <td><%= index+1  %></td>
+        <td><%= user_key.name %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+  <% if @user_keys.empty? %>
+  <br>
+  <br>
+ <div class="alert alert-info">
+ No Api Keys Added
+</div>
+  <% end %>
+<br>
+
+</div>

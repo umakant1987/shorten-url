@@ -2,6 +2,7 @@
   <% if user_signed_in? %>
     <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
     <li><%= link_to "Get Shorten Url",new_shorten_path %></li>
+    <li><%= link_to "Add Api Key",api_keys_path %></li>
     
    
 

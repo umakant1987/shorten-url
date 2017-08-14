@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :shortens 
+   resources :api_keys
   get 'tiny_url/:id' => 'shortens#get_original_url'
 
   devise_for :users
