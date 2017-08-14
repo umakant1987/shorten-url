@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :shortens 
    resources :api_keys
-  get 'tiny_url/:id' => 'shortens#get_original_url'
 
   namespace :api, defaults: {format:"json"} do
     
@@ -16,7 +15,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+    get '/:id' => 'shortens#get_original_url'
+
  root 'welcome#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
