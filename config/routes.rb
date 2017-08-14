@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   resources :shortens 
    resources :api_keys
 

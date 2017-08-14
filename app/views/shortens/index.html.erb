@@ -18,7 +18,7 @@
     <% @shortenr.each do |shorten| %>
       <tr>
         <td><%= shorten.original_url %></td>
-        <td><%= "http://localhost:3000/tiny_url/#{shorten.tiny_url}" %></td>
+        <td><%= "http://localhost:3000/#{shorten.tiny_url}" %></td>
         
       </tr>
     <% end %>

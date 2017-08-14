@@ -2,6 +2,24 @@ module Api
 	module V3
 		class ShortensController < ApplicationController
 			before_action :authenticate_user_via_access_token
+			extend Apipie::DSL::Concern
+			api :POST, "/v3/shortens",'This API is used to create shorten url.'
+			description <<-EOS
+			    == Create shorten url for an url
+			     This API is used to create shorten url.
+			    === Authentication required
+			     Authentication token(api key genereated by user) has to be passed as part of the request. It can be passed as parameter(access_token) or HTTP header(AUTH-TOKEN). 
+			  EOS
+
+			  error :code => 401, :desc => "Unathorised access"
+			  formats ['json']
+			  header 'access_token', 'Your API token'
+			  param :shorten, Hash, :description => "shorten" do
+			    param :original_url, String, :desc => "input original url", :required => true
+			   
+			  end
+
+
 			def create
 				if !@user.nil?
 					@shorten = Shorten.new(project_params)

@@ -21,7 +21,7 @@ class ShortensController < ApplicationController
 	end
 
 	def get_original_url
-		@org_url=Shorten.find_by_tiny_url(params[:id])
+		@org_url=Shorten.find_by(tiny_url: params[:id])
 		if @org_url
 			redirect_to @org_url.original_url
 		else

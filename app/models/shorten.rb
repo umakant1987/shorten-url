@@ -3,7 +3,7 @@ class Shorten < ActiveRecord::Base
 
    
 	def build_tiny_url
-		"http://localhost:3000/tiny_url/#{self.tiny_url}"
+		"http://localhost:3000/#{self.tiny_url}"
 	end
 
 	def self.generate_short_url
